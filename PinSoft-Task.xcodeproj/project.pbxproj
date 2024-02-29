@@ -1,0 +1,691 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB63621F2B90A61000E5894D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63621E2B90A61000E5894D /* AppDelegate.swift */; };
+		EB6362212B90A61000E5894D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362202B90A61000E5894D /* SceneDelegate.swift */; };
+		EB6362282B90A61200E5894D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB6362272B90A61200E5894D /* Assets.xcassets */; };
+		EB6362362B90A61200E5894D /* PinSoft_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */; };
+		EB6362402B90A61200E5894D /* PinSoft_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63623F2B90A61200E5894D /* PinSoft_TaskUITests.swift */; };
+		EB6362422B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362412B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift */; };
+		EB6362552B90A6E600E5894D /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362542B90A6E600E5894D /* SystemImages.swift */; };
+		EB6362592B90A75C00E5894D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362582B90A75C00E5894D /* TabBarViewController.swift */; };
+		EB63625D2B90A7B200E5894D /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63625C2B90A7B200E5894D /* HomeScreenViewController.swift */; };
+		EB63625F2B90A7C100E5894D /* FavoriteScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63625E2B90A7C100E5894D /* FavoriteScreenViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB6362322B90A61200E5894D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB6362132B90A61000E5894D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB63621A2B90A61000E5894D;
+			remoteInfo = "PinSoft-Task";
+		};
+		EB63623C2B90A61200E5894D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB6362132B90A61000E5894D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB63621A2B90A61000E5894D;
+			remoteInfo = "PinSoft-Task";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB63621B2B90A61000E5894D /* PinSoft-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PinSoft-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB63621E2B90A61000E5894D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB6362202B90A61000E5894D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB6362272B90A61200E5894D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB63622C2B90A61200E5894D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB6362312B90A61200E5894D /* PinSoft-TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PinSoft-TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskTests.swift; sourceTree = "<group>"; };
+		EB63623B2B90A61200E5894D /* PinSoft-TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PinSoft-TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB63623F2B90A61200E5894D /* PinSoft_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskUITests.swift; sourceTree = "<group>"; };
+		EB6362412B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB6362542B90A6E600E5894D /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
+		EB6362582B90A75C00E5894D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		EB63625C2B90A7B200E5894D /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		EB63625E2B90A7C100E5894D /* FavoriteScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB6362182B90A61000E5894D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB63622E2B90A61200E5894D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB6362382B90A61200E5894D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB6362122B90A61000E5894D = {
+			isa = PBXGroup;
+			children = (
+				EB63621D2B90A61000E5894D /* PinSoft-Task */,
+				EB6362342B90A61200E5894D /* PinSoft-TaskTests */,
+				EB63623E2B90A61200E5894D /* PinSoft-TaskUITests */,
+				EB63621C2B90A61000E5894D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB63621C2B90A61000E5894D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB63621B2B90A61000E5894D /* PinSoft-Task.app */,
+				EB6362312B90A61200E5894D /* PinSoft-TaskTests.xctest */,
+				EB63623B2B90A61200E5894D /* PinSoft-TaskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB63621D2B90A61000E5894D /* PinSoft-Task */ = {
+			isa = PBXGroup;
+			children = (
+				EB6362522B90A6C900E5894D /* Utilities */,
+				EB6362512B90A6C300E5894D /* Support */,
+				EB6362502B90A6BB00E5894D /* Models */,
+				EB63624F2B90A6AD00E5894D /* Views */,
+				EB63624E2B90A6A600E5894D /* Controllers */,
+			);
+			path = "PinSoft-Task";
+			sourceTree = "<group>";
+		};
+		EB6362342B90A61200E5894D /* PinSoft-TaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */,
+			);
+			path = "PinSoft-TaskTests";
+			sourceTree = "<group>";
+		};
+		EB63623E2B90A61200E5894D /* PinSoft-TaskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB63623F2B90A61200E5894D /* PinSoft_TaskUITests.swift */,
+				EB6362412B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift */,
+			);
+			path = "PinSoft-TaskUITests";
+			sourceTree = "<group>";
+		};
+		EB63624E2B90A6A600E5894D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB6362562B90A72E00E5894D /* Tabs */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EB63624F2B90A6AD00E5894D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB6362502B90A6BB00E5894D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB6362512B90A6C300E5894D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				EB63621E2B90A61000E5894D /* AppDelegate.swift */,
+				EB6362202B90A61000E5894D /* SceneDelegate.swift */,
+				EB6362272B90A61200E5894D /* Assets.xcassets */,
+				EB63622C2B90A61200E5894D /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		EB6362522B90A6C900E5894D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EB6362532B90A6D600E5894D /* Enums */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EB6362532B90A6D600E5894D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EB6362542B90A6E600E5894D /* SystemImages.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		EB6362562B90A72E00E5894D /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				EB63625B2B90A78C00E5894D /* FavoriteScreen */,
+				EB63625A2B90A78200E5894D /* HomeScreen */,
+				EB6362582B90A75C00E5894D /* TabBarViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		EB63625A2B90A78200E5894D /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EB63625C2B90A7B200E5894D /* HomeScreenViewController.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		EB63625B2B90A78C00E5894D /* FavoriteScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EB63625E2B90A7C100E5894D /* FavoriteScreenViewController.swift */,
+			);
+			path = FavoriteScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB63621A2B90A61000E5894D /* PinSoft-Task */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB6362452B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-Task" */;
+			buildPhases = (
+				EB6362172B90A61000E5894D /* Sources */,
+				EB6362182B90A61000E5894D /* Frameworks */,
+				EB6362192B90A61000E5894D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PinSoft-Task";
+			productName = "PinSoft-Task";
+			productReference = EB63621B2B90A61000E5894D /* PinSoft-Task.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB6362302B90A61200E5894D /* PinSoft-TaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB6362482B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-TaskTests" */;
+			buildPhases = (
+				EB63622D2B90A61200E5894D /* Sources */,
+				EB63622E2B90A61200E5894D /* Frameworks */,
+				EB63622F2B90A61200E5894D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB6362332B90A61200E5894D /* PBXTargetDependency */,
+			);
+			name = "PinSoft-TaskTests";
+			productName = "PinSoft-TaskTests";
+			productReference = EB6362312B90A61200E5894D /* PinSoft-TaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB63623A2B90A61200E5894D /* PinSoft-TaskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB63624B2B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-TaskUITests" */;
+			buildPhases = (
+				EB6362372B90A61200E5894D /* Sources */,
+				EB6362382B90A61200E5894D /* Frameworks */,
+				EB6362392B90A61200E5894D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB63623D2B90A61200E5894D /* PBXTargetDependency */,
+			);
+			name = "PinSoft-TaskUITests";
+			productName = "PinSoft-TaskUITests";
+			productReference = EB63623B2B90A61200E5894D /* PinSoft-TaskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB6362132B90A61000E5894D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					EB63621A2B90A61000E5894D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					EB6362302B90A61200E5894D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = EB63621A2B90A61000E5894D;
+					};
+					EB63623A2B90A61200E5894D = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = EB63621A2B90A61000E5894D;
+					};
+				};
+			};
+			buildConfigurationList = EB6362162B90A61000E5894D /* Build configuration list for PBXProject "PinSoft-Task" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB6362122B90A61000E5894D;
+			productRefGroup = EB63621C2B90A61000E5894D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB63621A2B90A61000E5894D /* PinSoft-Task */,
+				EB6362302B90A61200E5894D /* PinSoft-TaskTests */,
+				EB63623A2B90A61200E5894D /* PinSoft-TaskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB6362192B90A61000E5894D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB6362282B90A61200E5894D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB63622F2B90A61200E5894D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB6362392B90A61200E5894D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB6362172B90A61000E5894D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB6362592B90A75C00E5894D /* TabBarViewController.swift in Sources */,
+				EB6362552B90A6E600E5894D /* SystemImages.swift in Sources */,
+				EB63625F2B90A7C100E5894D /* FavoriteScreenViewController.swift in Sources */,
+				EB63621F2B90A61000E5894D /* AppDelegate.swift in Sources */,
+				EB6362212B90A61000E5894D /* SceneDelegate.swift in Sources */,
+				EB63625D2B90A7B200E5894D /* HomeScreenViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB63622D2B90A61200E5894D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB6362362B90A61200E5894D /* PinSoft_TaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB6362372B90A61200E5894D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB6362402B90A61200E5894D /* PinSoft_TaskUITests.swift in Sources */,
+				EB6362422B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB6362332B90A61200E5894D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB63621A2B90A61000E5894D /* PinSoft-Task */;
+			targetProxy = EB6362322B90A61200E5894D /* PBXContainerItemProxy */;
+		};
+		EB63623D2B90A61200E5894D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB63621A2B90A61000E5894D /* PinSoft-Task */;
+			targetProxy = EB63623C2B90A61200E5894D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EB6362432B90A61200E5894D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB6362442B90A61200E5894D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB6362462B90A61200E5894D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PinSoft-Task/Support/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB6362472B90A61200E5894D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PinSoft-Task/Support/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EB6362492B90A61200E5894D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinSoft-Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PinSoft-Task";
+			};
+			name = Debug;
+		};
+		EB63624A2B90A61200E5894D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinSoft-Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PinSoft-Task";
+			};
+			name = Release;
+		};
+		EB63624C2B90A61200E5894D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "PinSoft-Task";
+			};
+			name = Debug;
+		};
+		EB63624D2B90A61200E5894D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.okanorkun.PinSoft-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "PinSoft-Task";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB6362162B90A61000E5894D /* Build configuration list for PBXProject "PinSoft-Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB6362432B90A61200E5894D /* Debug */,
+				EB6362442B90A61200E5894D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB6362452B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB6362462B90A61200E5894D /* Debug */,
+				EB6362472B90A61200E5894D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB6362482B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-TaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB6362492B90A61200E5894D /* Debug */,
+				EB63624A2B90A61200E5894D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB63624B2B90A61200E5894D /* Build configuration list for PBXNativeTarget "PinSoft-TaskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB63624C2B90A61200E5894D /* Debug */,
+				EB63624D2B90A61200E5894D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB6362132B90A61000E5894D /* Project object */;
+}
