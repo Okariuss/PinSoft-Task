@@ -11,7 +11,7 @@ final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .systemBackground
         setTabs()
     }
     
@@ -20,9 +20,9 @@ final class TabBarViewController: UITabBarController {
 
 private extension TabBarViewController {
     private func setTabs() {
-        let homeVC = generateTab(on: HomeScreenViewController(), image: SystemImages.house.normal!, selectedImage: SystemImages.house.toSelected!)
+        let homeVC = generateTab(on: HomeScreenViewController(), image: SystemImages.house.normal, selectedImage: SystemImages.house.toSelected)
         
-        let favoriteVC = generateTab(on: FavoriteScreenViewController(), image: SystemImages.favorite.normal!, selectedImage: SystemImages.favorite.toSelected!)
+        let favoriteVC = generateTab(on: FavoriteScreenViewController(), image: SystemImages.favorite.normal, selectedImage: SystemImages.favorite.toSelected)
         
         setViewControllers([homeVC, favoriteVC], animated: true)
     }
