@@ -11,6 +11,8 @@ import UIKit
 enum SystemImages {
     case house
     case favorite
+    case wind
+    case humidity
 
     var rawValue: String {
         switch self {
@@ -18,16 +20,21 @@ enum SystemImages {
             return "house"
         case .favorite:
             return "heart"
+        case .wind:
+            return "wind"
+        case .humidity:
+            return "humidity"
         }
         
     }
     
-    var toSelected: UIImage? {
-        return UIImage(systemName: "\(rawValue).fill")
+    var toSelected: UIImage {
+        return UIImage(systemName: "\(rawValue).fill")!
     }
     
-    var normal: UIImage? {
-        return UIImage(systemName: rawValue)
+    var normal: UIImage {
+        return (UIImage(systemName: rawValue)?.withRenderingMode(.alwaysOriginal).withTintColor(.white))!
     }
+
     
 }
