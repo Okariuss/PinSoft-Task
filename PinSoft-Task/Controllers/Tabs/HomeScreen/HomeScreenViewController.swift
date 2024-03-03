@@ -140,7 +140,11 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate, 
         
         viewModel.animateCell(cell)
         
+        let detailVC = WeatherDetailScreenViewController()
         
+        detailVC.weatherInfo = viewModel.displayedWeatherData[indexPath.row]
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
