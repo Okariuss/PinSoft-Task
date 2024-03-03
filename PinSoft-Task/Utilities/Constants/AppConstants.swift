@@ -29,13 +29,6 @@ class AppConstants {
         }
     }
     
-    final class NetworkConstants {
-        private init() {}
-        
-        static let baseURL = "https://freetestapi.com/api/v1/"
-        static let weather = "weathers"
-    }
-    
     enum RadiusConstants {
         case low
         case normal
@@ -54,5 +47,32 @@ class AppConstants {
                 return 20
             }
         }
+    }
+    
+    final class NetworkConstants {
+        private init() {}
+        
+        static let baseURL = "https://freetestapi.com/api/v1/"
+        static let weather = "weathers"
+    }
+    
+    final class UserDefaultsKeys {
+        private init() {}
+        
+        static let favorites = "Favorites"
+    }
+    
+    final class CellIdentifiers {
+        private init() {}
+        
+        static let weatherInfoCellIdentifier = "WeatherInfoCell"
+    }
+    
+    final class LocalizationConstants {
+        private init() {}
+        
+        static let weatherTitle = "Weather"
+        static let favoriteTitle = "Favorites"
+        static let weatherSearchBarPlaceholder = "Search for a city"
     }
 }

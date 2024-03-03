@@ -15,14 +15,13 @@ final class TabBarViewController: UITabBarController {
         setTabs()
     }
     
-    
 }
 
 private extension TabBarViewController {
     private func setTabs() {
-        let homeVC = generateTab(on: HomeScreenViewController(), image: SystemImages.house.normal, selectedImage: SystemImages.house.toSelected)
+        let homeVC = generateTab(on: HomeScreenViewController(), image: SystemImages.house.normal.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), selectedImage: SystemImages.house.toSelected.withTintColor(.label, renderingMode: .alwaysOriginal))
         
-        let favoriteVC = generateTab(on: FavoriteScreenViewController(), image: SystemImages.favorite.normal, selectedImage: SystemImages.favorite.toSelected)
+        let favoriteVC = generateTab(on: FavoriteScreenViewController(), image: SystemImages.favorite.normal.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal), selectedImage: SystemImages.favorite.toSelected.withTintColor(.label, renderingMode: .alwaysOriginal))
         
         setViewControllers([homeVC, favoriteVC], animated: true)
     }

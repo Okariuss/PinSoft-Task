@@ -8,16 +8,10 @@
 import Foundation
 import UIKit
 
-protocol HomeViewModelDelegate: AnyObject, AlertDialogPresenter {
-    func updateUI()
-    func toggleNavigationBar(hidden: Bool, duration: Double)
-}
-
-protocol HomeViewModelProtocol {
-    var delegate: HomeViewModelDelegate? { get set }
-    var viewController: UIViewController? { get set }
+protocol HomeViewModelProtocol: BaseViewModelProtocol {
     var displayedWeatherData: WeatherData { get }
     var allDataLoaded: Bool { get }
+    
     func fetchWeatherData()
     func loadMoreWeatherData()
     func refreshWeatherData()
@@ -26,7 +20,7 @@ protocol HomeViewModelProtocol {
 
 final class HomeViewModel: HomeViewModelProtocol {
     
-    weak var delegate: HomeViewModelDelegate?
+    weak var delegate: BaseViewModelDelegate?
     weak var viewController: UIViewController?
     private var networkManager: NetworkManager
     private var allWeatherData: WeatherData = []
@@ -34,6 +28,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let batchSize = 10
     private var offset = 0
     var isNavBarHidden: Bool = false
+    var favoriteViewModel = FavoriteViewModel()
     
     var allDataLoaded: Bool {
         return offset >= allWeatherData.count
@@ -72,8 +67,6 @@ final class HomeViewModel: HomeViewModelProtocol {
                 self.delegate?.presentAlertDialog(message: NetworkError.noInternet.localizedDescription, in: viewController)
             }
         }
-        
-        
     }
     
     func loadMoreWeatherData() {
@@ -130,5 +123,20 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     func toggleNavBar() -> Bool {
         return !isNavBarHidden
+    }
+    
+    func toggleFavorite(at index: Int) {
+        let item = displayedWeatherData[index]
+        if (favoriteViewModel.favorites.first(where: { $0.id == item.id }) != nil) {
+            favoriteViewModel.removeFavorite(item)
+        } else {
+            favoriteViewModel.addFavorite(item)
+        }
+        delegate?.favoritesDidUpdate()
+    }
+    
+    func checkForFavoriteUpdates() {
+        favoriteViewModel.loadFavorites()
+        delegate?.updateUI()
     }
 }
