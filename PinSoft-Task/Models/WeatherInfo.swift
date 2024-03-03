@@ -44,6 +44,7 @@ enum WeatherCondition: String, Codable {
     case sunny
     case rainShowers = "rain showers"
     case rain
+    case rainy
     case scatteredClouds = "scattered clouds"
     
     init(from decoder: Decoder) throws {
@@ -60,7 +61,7 @@ enum WeatherCondition: String, Codable {
             self = .sunny
         case "rain showers":
             self = .rainShowers
-        case "rain":
+        case "rain", "rainy":
             self = .rain
         case "scattered clouds":
             self = .scatteredClouds

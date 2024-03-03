@@ -70,14 +70,14 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     private func labelsConstraints() {
-        addImage(image: humidityImage)
-        addImage(image: windSpeedImage)
-        addLabel(label: cityLabel, font: Theme.defaultTheme.themeFont.headlineFont.boldVersion)
-        addLabel(label: countryLabel)
-        addLabel(label: weatherDescriptionLabel)
-        addLabel(label: temperatureLabel, font: Theme.defaultTheme.themeFont.headerFont.boldVersion)
-        addLabel(label: humidityLabel)
-        addLabel(label: windSpeedLabel)
+        CommonComponents.addImage(view: containerView, image: humidityImage)
+        CommonComponents.addImage(view: containerView, image: windSpeedImage)
+        CommonComponents.addLabel(view: containerView, label: cityLabel, font: Theme.defaultTheme.themeFont.headlineFont.boldVersion)
+        CommonComponents.addLabel(view: containerView, label: countryLabel)
+        CommonComponents.addLabel(view: containerView, label: weatherDescriptionLabel)
+        CommonComponents.addLabel(view: containerView, label: temperatureLabel, font: Theme.defaultTheme.themeFont.headerFont.boldVersion)
+        CommonComponents.addLabel(view: containerView, label: humidityLabel)
+        CommonComponents.addLabel(view: containerView, label: windSpeedLabel)
         NSLayoutConstraint.activate([
             cityLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
             cityLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
@@ -125,19 +125,6 @@ class WeatherTableViewCell: UITableViewCell {
         favoriteButtonPressed?()
     }
     
-    private func addImage(image: UIImageView) {
-        containerView.addSubview(image)
-        image.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func addLabel(label: UILabel, font: UIFont = Theme.defaultTheme.themeFont.bodyFont) {
-        containerView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.font = font
-        label.textColor = .white
-    }
-    
     func configure(with weatherInfo: WeatherInfo) {
         
         cityLabel.text = "\(weatherInfo.city)"
@@ -161,7 +148,7 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     private func loadFavorites() -> WeatherData? {
-        guard let data = UserDefaults.standard.data(forKey: "favorites") else { return nil }
+        guard let data = UserDefaults.standard.data(forKey: AppConstants.UserDefaultsKeys.favorites) else { return nil }
         return try? JSONDecoder().decode(WeatherData.self, from: data)
     }
     
@@ -181,7 +168,7 @@ class WeatherTableViewCell: UITableViewCell {
             backgroundImageName = "Cloudy"
         case .rainShowers:
             backgroundImageName = "RainShowers"
-        case .rain:
+        case .rain, .rainy:
             backgroundImageName = "Rainy"
         }
         
