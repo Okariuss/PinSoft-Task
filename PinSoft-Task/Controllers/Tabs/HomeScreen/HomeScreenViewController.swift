@@ -13,23 +13,19 @@ class HomeScreenViewController: UIViewController {
     private let spinner = UIActivityIndicatorView(style: .medium)
     
     private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Theme.defaultTheme.themeFont.headerFont
-        label.text = "Weather"
-        return label
+        return CommonComponents.makeTitleLabel(AppConstants.LocalizationConstants.weatherTitle)
     }()
     
     private let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+        return CommonComponents.makeView()
     }()
     
     private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
+        return CommonComponents.makeView()
+    }()
+    
+    private let searchController: UISearchController = {
+        return CommonComponents.makeSearchController(placeholder: AppConstants.LocalizationConstants.weatherSearchBarPlaceholder)
     }()
     
     override func viewDidLoad() {
@@ -37,6 +33,11 @@ class HomeScreenViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.checkForFavoriteUpdates()
     }
     
     private func setupUI() {
@@ -54,15 +55,10 @@ class HomeScreenViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
-        let searchController = UISearchController(searchResultsController: nil)
-            searchController.searchResultsUpdater = self
-            searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Search for a city"
-            navigationItem.searchController = searchController
-            
-            definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-
     
     private func setupTableView() {
         view.addSubview(tableView)
@@ -72,7 +68,7 @@ class HomeScreenViewController: UIViewController {
         
         tableView.rowHeight = .dHeight / 6
         
-        tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "WeatherInfoCell")
+        tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: AppConstants.CellIdentifiers.weatherInfoCellIdentifier)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -90,7 +86,12 @@ class HomeScreenViewController: UIViewController {
     }
 }
 
-extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate, HomeViewModelDelegate, UIScrollViewDelegate, UISearchResultsUpdating {
+extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate, BaseViewModelDelegate, UIScrollViewDelegate, UISearchResultsUpdating {
+    
+    func favoritesDidUpdate() {
+        self.tableView.reloadData()
+    }
+    
     func toggleNavigationBar(hidden: Bool, duration: Double) {
         navigationController?.setNavigationBarHidden(viewModel.toggleNavBar(), animated: true)
         UIView.animate(withDuration: duration) {
@@ -115,10 +116,17 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.CellIdentifiers.weatherInfoCellIdentifier, for: indexPath) as! WeatherTableViewCell
         
         let weatherData = viewModel.displayedWeatherData[indexPath.row]
         cell.configure(with: weatherData)
+        
+        cell.favoriteButtonPressed = { [weak self] in
+            self?.viewModel.toggleFavorite(at: indexPath.row)
+        }
+        
+        let isFavorite = viewModel.favoriteViewModel.favorites.contains { $0.id == weatherData.id }
+        cell.favoriteButton.setImage(isFavorite ? SystemImages.favorite.toSelected : SystemImages.favorite.normal, for: .normal)
         
         cell.selectionStyle = .none
         
@@ -130,25 +138,16 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate, 
         
         guard let cell = tableView.cellForRow(at: indexPath) as? WeatherTableViewCell else { return }
         
-        UIView.animate(withDuration: 0.2, animations: {
-            cell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-        }) { (_) in
-            UIView.animate(withDuration: 0.2) {
-                cell.transform = .identity
-            }
-        }
+        viewModel.animateCell(cell)
+        
+        
     }
 
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height
         viewModel.scrollViewDidScroll(offsetY: offsetY, contentHeight: contentHeight, screenHeight: screenHeight, spinner: spinner)
-    }
-    
-    @objc private func loadMoreData() {
-        viewModel.loadMoreWeatherData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
