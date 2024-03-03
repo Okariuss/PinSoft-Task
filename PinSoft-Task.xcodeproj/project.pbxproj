@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB2FBB492B950EA600ED4258 /* TabBarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FBB482B950EA600ED4258 /* TabBarViewControllerTests.swift */; };
 		EB4465E22B924393006B137E /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4465E12B924393006B137E /* AppConstants.swift */; };
 		EB4465E42B924AE2006B137E /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4465E32B924AE2006B137E /* CGFloat+Ext.swift */; };
 		EB63621F2B90A61000E5894D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63621E2B90A61000E5894D /* AppDelegate.swift */; };
 		EB6362212B90A61000E5894D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362202B90A61000E5894D /* SceneDelegate.swift */; };
 		EB6362282B90A61200E5894D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB6362272B90A61200E5894D /* Assets.xcassets */; };
-		EB6362362B90A61200E5894D /* PinSoft_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */; };
 		EB6362402B90A61200E5894D /* PinSoft_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63623F2B90A61200E5894D /* PinSoft_TaskUITests.swift */; };
 		EB6362422B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362412B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift */; };
 		EB6362552B90A6E600E5894D /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6362542B90A6E600E5894D /* SystemImages.swift */; };
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB2FBB482B950EA600ED4258 /* TabBarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerTests.swift; sourceTree = "<group>"; };
 		EB4465E12B924393006B137E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		EB4465E32B924AE2006B137E /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		EB63621B2B90A61000E5894D /* PinSoft-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PinSoft-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +67,6 @@
 		EB6362272B90A61200E5894D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB63622C2B90A61200E5894D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB6362312B90A61200E5894D /* PinSoft-TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PinSoft-TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskTests.swift; sourceTree = "<group>"; };
 		EB63623B2B90A61200E5894D /* PinSoft-TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PinSoft-TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB63623F2B90A61200E5894D /* PinSoft_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskUITests.swift; sourceTree = "<group>"; };
 		EB6362412B90A61200E5894D /* PinSoft_TaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSoft_TaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		EB6362342B90A61200E5894D /* PinSoft-TaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				EB6362352B90A61200E5894D /* PinSoft_TaskTests.swift */,
+				EB2FBB482B950EA600ED4258 /* TabBarViewControllerTests.swift */,
 			);
 			path = "PinSoft-TaskTests";
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB6362362B90A61200E5894D /* PinSoft_TaskTests.swift in Sources */,
+				EB2FBB492B950EA600ED4258 /* TabBarViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
