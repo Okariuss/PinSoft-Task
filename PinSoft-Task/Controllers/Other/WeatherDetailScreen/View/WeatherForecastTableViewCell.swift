@@ -1,16 +1,16 @@
 //
-//  WeatherView.swift
+//  WeatherForecastTableViewCell.swift
 //  PinSoft-Task
 //
-//  Created by Okan Orkun on 29.02.2024.
+//  Created by Okan Orkun on 3.03.2024.
 //
 
 import UIKit
 
-class WeatherTableViewCell: UITableViewCell {
+class WeatherForecastTableViewCell: UITableViewCell {
+    
     private let containerView = UIView()
-    private let cityLabel = UILabel()
-    private let countryLabel = UILabel()
+    private let dateLabel = UILabel()
     private let temperatureLabel = UILabel()
     private let weatherDescriptionLabel = UILabel()
     private let humidityImage = UIImageView(image: SystemImages.humidity.normal)
@@ -18,33 +18,29 @@ class WeatherTableViewCell: UITableViewCell {
     private let windSpeedImage = UIImageView(image: SystemImages.wind.normal)
     private let windSpeedLabel = UILabel()
     private let backgroundImageView = UIImageView()
-    let favoriteButton = UIButton(type: .system)
     
-    var favoriteButtonPressed: (() -> Void)?
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
+        setupUI()
+        backgroundColor = .clear
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
+    private func setupUI() {
         containerViewConstraints()
-        
         backgroundImageViewConstraints()
-        
         labelsConstraints()
-        
-        configureFavoriteButton()
     }
     
     private func containerViewConstraints() {
         contentView.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.layer.cornerRadius = AppConstants.RadiusConstants.normal.rawValue
+        contentView.backgroundColor = .clear
+        containerView.layer.cornerRadius = AppConstants.RadiusConstants.high.rawValue
+        containerView.layer.borderWidth = 1
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: AppConstants.SpaceConstants.normal.rawValue),
@@ -58,7 +54,7 @@ class WeatherTableViewCell: UITableViewCell {
         containerView.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImageView.contentMode = .scaleToFill
-        backgroundImageView.layer.cornerRadius = AppConstants.RadiusConstants.normal.rawValue
+        backgroundImageView.layer.cornerRadius = AppConstants.RadiusConstants.high.rawValue
         backgroundImageView.clipsToBounds = true
         
         NSLayoutConstraint.activate([
@@ -70,21 +66,17 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     private func labelsConstraints() {
+        CommonComponents.addLabel(view: containerView, label: dateLabel, font: Theme.defaultTheme.themeFont.headlineFont)
         CommonComponents.addImage(view: containerView, image: humidityImage)
         CommonComponents.addImage(view: containerView, image: windSpeedImage)
-        CommonComponents.addLabel(view: containerView, label: cityLabel, font: Theme.defaultTheme.themeFont.headlineFont.boldVersion)
-        CommonComponents.addLabel(view: containerView, label: countryLabel)
         CommonComponents.addLabel(view: containerView, label: weatherDescriptionLabel)
-        CommonComponents.addLabel(view: containerView, label: temperatureLabel, font: Theme.defaultTheme.themeFont.headerFont.boldVersion)
+        CommonComponents.addLabel(view: containerView, label: temperatureLabel, font: Theme.defaultTheme.themeFont.headerFont)
         CommonComponents.addLabel(view: containerView, label: humidityLabel)
         CommonComponents.addLabel(view: containerView, label: windSpeedLabel)
         NSLayoutConstraint.activate([
-            cityLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
-            cityLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
+            dateLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
+            dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
             
-            countryLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
-            countryLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: AppConstants.SpaceConstants.low.rawValue),
-        
             humidityImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
             humidityImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -AppConstants.SpaceConstants.medium.rawValue),
             
@@ -106,56 +98,21 @@ class WeatherTableViewCell: UITableViewCell {
         ])
     }
     
-    private func configureFavoriteButton() {
-        containerView.addSubview(favoriteButton)
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.setImage(SystemImages.favorite.normal, for: .normal)
-        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
-        favoriteButton.tintColor = .red
+    func configure(with forecast: Forecast) {
+        dateLabel.text = "\(forecast.date)".formattedDate()
+        temperatureLabel.text = "\(forecast.temperature)°C"
+        weatherDescriptionLabel.text = "\(forecast.weatherDescription)"
+        humidityLabel.text = "\(forecast.humidity)%"
+        windSpeedLabel.text = "\(forecast.windSpeed) km/h"
         
-        NSLayoutConstraint.activate([
-            favoriteButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppConstants.SpaceConstants.normal.rawValue),
-            favoriteButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -AppConstants.SpaceConstants.normal.rawValue),
-            
-        ])
-    }
-        
-    @objc private func favoriteButtonTapped() {
-        
-        favoriteButtonPressed?()
+        configureBackground(with: forecast)
     }
     
-    func configure(with weatherInfo: WeatherInfo) {
-        
-        cityLabel.text = "\(weatherInfo.city)"
-        countryLabel.text = "\(weatherInfo.country)"
-        temperatureLabel.text = "\(weatherInfo.temperature)°"
-        weatherDescriptionLabel.text = "\(weatherInfo.weatherDescription.rawValue.capitalized)"
-        humidityLabel.text = "\(weatherInfo.humidity)%"
-        windSpeedLabel.text = "\(weatherInfo.windSpeed) mph"
-        
-        updateFavoriteButton(for: weatherInfo)
-        configureBackground(with: weatherInfo)
-    }
-    
-    private func updateFavoriteButton(for weatherInfo: WeatherInfo) {
-        favoriteButton.setImage(favoriteImage(for: weatherInfo), for: .normal)
-    }
-    
-    private func favoriteImage(for weatherInfo: WeatherInfo) -> UIImage? {
-        guard let favorites = loadFavorites() else { return SystemImages.favorite.normal }
-        return favorites.contains(where: { $0.id == weatherInfo.id }) ? SystemImages.favorite.toSelected :SystemImages.favorite.normal
-    }
-    
-    private func loadFavorites() -> WeatherData? {
-        guard let data = UserDefaults.standard.data(forKey: AppConstants.UserDefaultsKeys.favorites) else { return nil }
-        return try? JSONDecoder().decode(WeatherData.self, from: data)
-    }
-    
-    private func configureBackground(with weatherInfo: WeatherInfo) {
+    private func configureBackground(with forecastInfo: Forecast) {
+        let weatherCondition = WeatherCondition(rawValue: forecastInfo.weatherDescription.lowercased())
         let backgroundImageName: String
         
-        switch weatherInfo.weatherDescription {
+        switch weatherCondition {
         case .sunny:
             backgroundImageName = "Sunny"
         case .clearSky:
@@ -170,6 +127,8 @@ class WeatherTableViewCell: UITableViewCell {
             backgroundImageName = "RainShowers"
         case .rain, .rainy:
             backgroundImageName = "Rainy"
+        case .none:
+            backgroundImageName = ""
         }
         
         if let backgroundImage = UIImage(named: backgroundImageName) {
@@ -177,3 +136,4 @@ class WeatherTableViewCell: UITableViewCell {
         }
     }
 }
+

@@ -118,5 +118,11 @@ extension FavoriteScreenViewController: UITableViewDataSource, UITableViewDelega
         guard let cell = tableView.cellForRow(at: indexPath) as? WeatherTableViewCell else { return }
         
         viewModel.animateCell(cell)
+        
+        let detailVC = WeatherDetailScreenViewController()
+        
+        detailVC.weatherInfo = viewModel.favorites[indexPath.row]
+        
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

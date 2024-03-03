@@ -32,4 +32,17 @@ final class CommonComponents {
         searchController.searchBar.placeholder = text
         return searchController
     }
+    
+    static func addLabel(view: UIView, label: UILabel, font: UIFont = Theme.defaultTheme.themeFont.bodyFont) {
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = font
+        label.textColor = .white
+    }
+    
+    static func addImage(view: UIView, image: UIImageView) {
+        view.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+    }
 }

@@ -12,6 +12,7 @@ enum NetworkError: Error {
     case noData
     case invalidURL
     case decodingError
+    case noDataAvailable
     
     var localizedDescription: String {
         switch self {
@@ -23,6 +24,8 @@ enum NetworkError: Error {
             return "Invalid URL provided for network request."
         case .decodingError:
             return "Error occurred while decoding the response data."
+        case .noDataAvailable:
+            return "No cached weather data available."
         }
     }
 }

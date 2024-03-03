@@ -60,12 +60,14 @@ class AppConstants {
         private init() {}
         
         static let favorites = "Favorites"
+        static let weatherDatas = "WeatherDatas"
     }
     
     final class CellIdentifiers {
         private init() {}
         
         static let weatherInfoCellIdentifier = "WeatherInfoCell"
+        static let weatherForecastCellIdentifier = "WeatherForecastCell"
     }
     
     final class LocalizationConstants {

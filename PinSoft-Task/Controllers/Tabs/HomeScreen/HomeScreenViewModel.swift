@@ -40,32 +40,50 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     func fetchWeatherData() {
         guard let viewController = self.viewController else { return }
-        
-        if networkManager.isConnected {
-            let endpoint = Endpoint.getWeathers
-            networkManager.request(endpoint: endpoint) { [weak self] data, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.presentAlertDialog(message: error.localizedDescription, in: viewController)
-                    return
-                }
-                
-                guard let data = data else {
-                    self.delegate?.presentAlertDialog(message: NetworkError.noData.localizedDescription, in: viewController)
-                    return
-                }
 
-                do {
-                    self.allWeatherData = try JSONDecoder().decode(WeatherData.self, from: data)
-                    self.loadMoreWeatherData()
-                } catch {
-                    self.delegate?.presentAlertDialog(message: NetworkError.decodingError.localizedDescription, in: viewController)
+        if networkManager.isConnected {
+            networkManager.request(endpoint: Endpoint.getWeathers) { [weak self] data, error in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    if let data = data {
+                        self.handleNetworkResponse(data: data, error: error, vc: viewController)
+                    } else {
+                        self.delegate?.presentAlertDialog(message: error?.localizedDescription ?? NetworkError.noData.localizedDescription, in: viewController)
+                    }
                 }
             }
         } else {
-            DispatchQueue.main.async {
-                self.delegate?.presentAlertDialog(message: NetworkError.noInternet.localizedDescription, in: viewController)
-            }
+            delegate?.presentAlertDialog(message: NetworkError.noInternet.localizedDescription, in: viewController)
+            loadWeatherDataFromUserDefaults(vc: viewController)
+        }
+    }
+
+    private func loadWeatherDataFromUserDefaults(vc: UIViewController) {
+        guard let data = UserDefaults.standard.data(forKey: AppConstants.UserDefaultsKeys.weatherDatas) else {
+            delegate?.presentAlertDialog(message: NetworkError.noDataAvailable.localizedDescription, in: vc)
+            return
+        }
+
+        do {
+            self.allWeatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+            self.refreshWeatherData()
+        } catch {
+            delegate?.presentAlertDialog(message: NetworkError.decodingError.localizedDescription, in: vc)
+        }
+    }
+    
+    private func handleNetworkResponse(data: Data?, error: Error?, vc: UIViewController) {
+        
+        guard let data = data else {
+            delegate?.presentAlertDialog(message: error?.localizedDescription ?? NetworkError.noData.localizedDescription, in: vc)
+            return
+        }
+        do {
+            self.allWeatherData = try JSONDecoder().decode(WeatherData.self, from: data)
+            UserDefaults.standard.set(data, forKey: AppConstants.UserDefaultsKeys.weatherDatas)
+            self.refreshWeatherData()
+        } catch {
+            delegate?.presentAlertDialog(message: NetworkError.decodingError.localizedDescription, in: vc)
         }
     }
     
