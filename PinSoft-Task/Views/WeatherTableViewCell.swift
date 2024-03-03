@@ -18,9 +18,9 @@ class WeatherTableViewCell: UITableViewCell {
     private let windSpeedImage = UIImageView(image: SystemImages.wind.normal)
     private let windSpeedLabel = UILabel()
     private let backgroundImageView = UIImageView()
-    private let favoriteButton = UIButton(type: .custom)
+    let favoriteButton = UIButton(type: .system)
     
-    private var isFavorite = false
+    var favoriteButtonPressed: (() -> Void)?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -84,9 +84,7 @@ class WeatherTableViewCell: UITableViewCell {
             
             countryLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
             countryLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: AppConstants.SpaceConstants.low.rawValue),
-            
-            
-            
+        
             humidityImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: AppConstants.SpaceConstants.medium.rawValue),
             humidityImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -AppConstants.SpaceConstants.medium.rawValue),
             
@@ -123,9 +121,8 @@ class WeatherTableViewCell: UITableViewCell {
     }
         
     @objc private func favoriteButtonTapped() {
-        isFavorite.toggle()
-        let favoriteImage = isFavorite ? SystemImages.favorite.toSelected : SystemImages.favorite.normal
-        favoriteButton.setImage(favoriteImage, for: .normal)
+        
+        favoriteButtonPressed?()
     }
     
     private func addImage(image: UIImageView) {
@@ -142,13 +139,30 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func configure(with weatherInfo: WeatherInfo) {
-        configureBackground(with: weatherInfo)
+        
         cityLabel.text = "\(weatherInfo.city)"
         countryLabel.text = "\(weatherInfo.country)"
         temperatureLabel.text = "\(weatherInfo.temperature)°"
         weatherDescriptionLabel.text = "\(weatherInfo.weatherDescription.rawValue.capitalized)"
         humidityLabel.text = "\(weatherInfo.humidity)%"
         windSpeedLabel.text = "\(weatherInfo.windSpeed) mph"
+        
+        updateFavoriteButton(for: weatherInfo)
+        configureBackground(with: weatherInfo)
+    }
+    
+    private func updateFavoriteButton(for weatherInfo: WeatherInfo) {
+        favoriteButton.setImage(favoriteImage(for: weatherInfo), for: .normal)
+    }
+    
+    private func favoriteImage(for weatherInfo: WeatherInfo) -> UIImage? {
+        guard let favorites = loadFavorites() else { return SystemImages.favorite.normal }
+        return favorites.contains(where: { $0.id == weatherInfo.id }) ? SystemImages.favorite.toSelected :SystemImages.favorite.normal
+    }
+    
+    private func loadFavorites() -> WeatherData? {
+        guard let data = UserDefaults.standard.data(forKey: "favorites") else { return nil }
+        return try? JSONDecoder().decode(WeatherData.self, from: data)
     }
     
     private func configureBackground(with weatherInfo: WeatherInfo) {
